@@ -19,23 +19,21 @@
             </div>
             <div class="form-group row d-flex justify-content-center">
                 <div style="margin-bottom: 3%;" class="col-10">
-                    <span class="textColor" for="inlineFormInputGroup">Contraseña</span>
+                    <span class="textColor" for="input_password">Contraseña</span>
                     <div class="input-group mb-2">
-                        <input type="password" autocomplete="off" class="form-control" id="inlineFormInputGroup"
-                            placeholder="***">
+                        <input type="password" autocomplete="off" class="form-control" id="input_password"
+                            placeholder="******">
                         <div class="input-group-prepend">
-                            <div style="position:relative;margin-left:-43px;" class="input-group-text">
-                                <span><i class="fa-solid fa-eye"></i></span>
+                            <div style="position:relative;margin-left:-43px;border:none;background-color: #e8f0fe;" class="input-group-text">
+                                <a href="#" id="eyeButton" style="color:#212529;"><i id="iEye" class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
+                    <a id="emailHelp" href="<?= base_url() ?>Inicio/Recuperar" type="button">Olvide mi contraseña.</a>
                 </div>
             </div>
-
-            <div style="padding-top: 3%;" class="form-group row d-flex justify-content-center">
-                <div class="col-10 ">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-secondary btnInicio">Entrar</button>
             </div>
         </form>
     </div>

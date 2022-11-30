@@ -11,8 +11,17 @@ class Inicio extends CI_Controller {
     public function index()
 	{
         $this->load->view('headers/header');
-		$this->load->view('index');
+		$this->load->view('index');		
 		$this->load->view('footers/footer');
+		$this->load->view('footers/cargar_js');
+	}
+
+	public function Recuperar()
+	{
+		$this->load->view('headers/header');
+		$this->load->view('home/recuperar');	
+		$this->load->view('footers/footer');
+		$this->load->view('footers/cargar_js');
 	}
 
     //Funcion Login
