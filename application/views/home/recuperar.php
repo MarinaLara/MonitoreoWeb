@@ -1,3 +1,5 @@
+<body>
+    <div class="container-fluid">
 <div class="row g-0 d-flex align-items-center contenedor">
     <div class="col-sm-12 col-md-6 d-flex justify-content-center" style="align-items: center;">
         <img src="<?= base_url() ?>recursos/imagenes/logoLogin.png" alt="Logo">
@@ -9,7 +11,7 @@
                 <h1 style="text-transform: uppercase;">Recuperar contraseña</h1>
             </div>
         </div>
-        <form id="recuperarPass" autocomplete="off">
+        <form id="recuperarPass" autocomplete="off" action="<?= base_url() ?>Inicio/">
             <div class="form-group row d-flex justify-content-center">
                 <div style="margin-bottom: 3%;" class="col-10 ">
                     <span class="textColor" for="exampleInputEmail1">Correo</span>

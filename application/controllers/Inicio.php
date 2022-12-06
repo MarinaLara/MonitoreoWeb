@@ -11,7 +11,8 @@ class Inicio extends CI_Controller {
     public function index()
 	{
         $this->load->view('headers/header');
-		$this->load->view('index');		
+        $this->load->view('headers/cargar_css');
+		$this->load->view('home/index');		
 		$this->load->view('footers/footer');
 		$this->load->view('footers/cargar_js');
 	}
@@ -19,6 +20,7 @@ class Inicio extends CI_Controller {
 	public function Recuperar()
 	{
 		$this->load->view('headers/header');
+		$this->load->view('headers/cargar_css');
 		$this->load->view('home/recuperar');	
 		$this->load->view('footers/footer');
 		$this->load->view('footers/cargar_js');

@@ -1,0 +1,15 @@
+body {
+    background-color: #5F6769;
+}
+
+.contenedor {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 6px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
