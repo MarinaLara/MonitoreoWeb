@@ -72,7 +72,7 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #1B262C;">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link" style="background-color: #1B262C;">
+            <a href="Inicio" class="brand-link" style="background-color: #1B262C;">
                 <img src="<?= base_url() ?>recursos/imagenes/logoLogin.png" alt="Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8; max-height: 40px;">
                 <span class="brand-text font-weight-light textSize">Monitoreo</span>

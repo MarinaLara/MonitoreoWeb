@@ -17,6 +17,9 @@
 			case 'Usuarios':
 			    echo '<link rel="stylesheet" href="'.base_url().'recursos/css/usuarios.css">';
 		    break;
+			case 'Colmenas':
+			    echo '<link rel="stylesheet" href="'.base_url().'recursos/css/colmenas.css">';
+		    break;
 	    }
 ?>
 		<script>var base_url = '<?php echo base_url()?>';</script>

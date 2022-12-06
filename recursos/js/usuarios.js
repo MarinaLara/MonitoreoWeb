@@ -3,6 +3,17 @@ var usuarios = {
         //Configuraciones de tabla usuarios
         $(document).ready(function () {
             $('#tblUsuarios').DataTable({
+                responsive: true,
+                autoWidth: true,
+                pageLength: 5,
+                columnDefs: [{
+                    targets: [3],
+                    orderable: false,
+                }],
+                lengthMenu: [
+                    [5, 10, 25, 50, -1],
+                    ['5', '10', '25', '50', 'Todo']
+                ],
                 language: {
                     "sProcessing": "Procesando...",
                     "sLengthMenu": "Mostrar _MENU_ registros",
@@ -38,7 +49,8 @@ var usuarios = {
 
                     }
                 }
-            });
+            }).columns.adjust();
+            $('#tblUsuarios_filter input').attr("placeholder", "Buscar");
         });
 
         //cambio de tipo de input contraseña
@@ -108,7 +120,7 @@ var usuarios = {
             $("#txtApellidoPaterno").val(response.apellidoPaterno);
             $("#txtApellidoMaterno").val(response.apellidoMaterno);
             $("#txtEmail").val(response.email);
-            $("#selNivel").val(response.nivel);
+            $("#selNivel").val(response.id_nivelUsuario);
             $("#txtPass").val('');
         });
     },

@@ -34,13 +34,16 @@
                         <div class="col">
                             <label for="selNivel">Nivel</label>
                             <select id="selNivel" class="custom-select">
-                                <option>Seleccione un nivel...</option>
+                                <option style="color: white!important;">Seleccione un nivel...</option>
                                 <?php
                                 if ($DATA_NIVELES != False) {
                                     foreach ($DATA_NIVELES as $row) {
                                 ?>
-                                <option value="<?=$row->id_nivelUsuario?>"><?= $row->nivel?></option>
+                                <option style="color: white!important;" value="<?= $row->id_nivelUsuario ?>" >
+                                    <?= $row->nivel ?>
+                                </option>
                                 <?php
+                                    
                                     }
                                 }
                                 ?>
