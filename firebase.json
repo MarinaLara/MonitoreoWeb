@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "MonitoreoWeb",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,7 +9,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.php"
+        "destination": "/index.html"
       }
     ]
   }
