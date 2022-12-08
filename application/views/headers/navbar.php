@@ -24,7 +24,8 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars textSize"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars textSize"></i></a>
                 </li>
             </ul>
             <!-- Right navbar links -->
@@ -33,10 +34,12 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                     <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown"
                         aria-expanded="false">
                         <?php if ($img_path == null) { ?>
-                        <img style="float: right!important; margin-top: -4px;" src="<?= base_url() ?>recursos/imagenes/user.jpg"
+                        <img style="float: right!important; margin-top: -4px;"
+                            src="<?= base_url() ?>recursos/imagenes/user.jpg"
                             class="user-image img-circle elevation-2 nav-user-img">
                         <?php } else { ?>
-                        <img src="<?= base_url($img_path) ?>" style="float: right!important; margin-top: -4px;" class="user-image img-circle elevation-2 nav-user-img">
+                        <img src="<?= base_url($img_path) ?>" style="float: right!important; margin-top: -4px;"
+                            class="user-image img-circle elevation-2 nav-user-img">
                         <?php } ?>
                         <span class="hidden-xs text-capitalize textSize">
                             <?= $nombre; ?>
@@ -85,7 +88,7 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-                            <a href="<?=base_url()?>Monitoreo/" class="nav-link">
+                            <a href="<?= base_url() ?>Monitoreo/" class="nav-link">
                                 <i class="fa-solid fa-house textSize"></i>
                                 <p class="textSize">
                                     Inicio
@@ -93,7 +96,7 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?=base_url()?>Monitoreo/Datos" class="nav-link">
+                            <a href="<?= base_url() ?>Monitoreo/Datos" class="nav-link">
                                 <i class="fa-solid fa-chart-column textSize"></i>
                                 <p class="textSize">
                                     Datos
@@ -101,7 +104,7 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?=base_url()?>Colmenas" class="nav-link">
+                            <a href="<?= base_url() ?>Colmenas" class="nav-link">
                                 <i class="fa-brands fa-hive textSize"></i>
                                 <p class="textSize">
                                     Colmenas
@@ -109,10 +112,18 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?=base_url()?>Usuarios/" class="nav-link">
+                            <a href="<?= base_url() ?>Usuarios/" class="nav-link">
                                 <i class="fa-solid fa-user textSize"></i>
                                 <p class="textSize">
                                     Usuarios
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>Empresas/" class="nav-link">
+                                <i class="fa-solid fa-building textSize"></i>
+                                <p class="textSize">
+                                    Empresas
                                 </p>
                             </a>
                         </li>
