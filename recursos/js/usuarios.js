@@ -121,6 +121,7 @@ var usuarios = {
             $("#txtApellidoMaterno").val(response.apellidoMaterno);
             $("#txtEmail").val(response.email);
             $("#selNivel").val(response.id_nivelUsuario);
+            $("#selEmpresa").val(response.id_empresa);
             $("#txtPass").val('');
         });
     },
@@ -166,6 +167,7 @@ var usuarios = {
                 apellidoM: $("#txtApellidoMaterno").val(),
                 email: $("#txtEmail").val(),
                 nivel: $("#selNivel").val(),
+                id_empresa: $("#selEmpresa").val(),
             }
 
             //Si es vacio es crear, sino es editar

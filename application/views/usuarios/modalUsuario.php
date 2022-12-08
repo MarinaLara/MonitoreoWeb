@@ -49,6 +49,25 @@
                                 ?>
                             </select>
                         </div>
+                        <div class="col">
+                            <label for="selEmpresa">Empresa</label>
+                            <select id="selEmpresa" class="custom-select">
+                                <option style="color: white!important;">Seleccione una empresa...</option>
+                                <?php
+                                if ($DATA_EMPRESAS != False) {
+                                    foreach ($DATA_EMPRESAS as $row) {
+                                ?>
+                                <option style="color: white!important;" value="<?= $row->id_empresa ?>" >
+                                    <?= $row->razonSocial ?>
+                                </option>
+                                <?php
+                                    
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                                
                     </div>
                 </div>
                 <div class="form-group">

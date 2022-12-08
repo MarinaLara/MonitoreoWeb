@@ -11,10 +11,23 @@ class Users_model extends CI_Model
 
     public function get_usuarios()
     {
-        $this->db->select('*, usuarios.id_nivelusuario, nivelesUsuarios.nivel');
+        $this->db->select('*, usuarios.id_nivelusuario, nivelesUsuarios.nivel, empresas.razonSocial');
         $this->db->from('usuarios');
         $this->db->join('nivelesUsuarios', 'nivelesUsuarios.id_nivelUsuario = usuarios.id_nivelUsuario');
+        $this->db->join('empresas', 'empresas.id_empresa = usuarios.id_empresa');
         $this->db->where('usuarios.activo', 1);
+
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function get_empresas()
+    {
+        $this->db->from('empresas');
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

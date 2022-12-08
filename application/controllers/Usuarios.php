@@ -14,6 +14,7 @@ class Usuarios extends CI_Controller
 			$data = array(
 				'DATA_USUARIOS' => $this->Users_model->get_usuarios(),
 				'DATA_NIVELES' => $this->Users_model->get_niveles(),
+				'DATA_EMPRESAS' => $this->Users_model->get_empresas(),
 			);
 			$this->load->view('headers/header');
 			$this->load->view('headers/cargar_css');
@@ -52,6 +53,7 @@ class Usuarios extends CI_Controller
 					'apellidoMaterno' => trim($this->input->post('apellidoM')),
 					'email' => trim($this->input->post('email')),
 					'id_nivelUsuario' => trim($this->input->post('nivel')),
+					'id_empresa' => trim($this->input->post('id_empresa')),
 					'pass' => trim($this->input->post('passw')),
 				);
 
@@ -76,6 +78,7 @@ class Usuarios extends CI_Controller
 					'apellidoMaterno' => trim($this->input->post('apellidoM')),
 					'email' => trim($this->input->post('email')),
 					'id_nivelUsuario' => trim($this->input->post('nivel')),
+					'id_empresa' => trim($this->input->post('id_empresa')),
 				);
 				if ($this->input->post('passw') != "") {
 					$data['pass'] = trim($this->input->post('passw'));

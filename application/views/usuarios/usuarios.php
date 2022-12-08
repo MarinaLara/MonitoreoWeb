@@ -22,6 +22,7 @@
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Nivel</th>
+                        <th>Empresa</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -38,7 +39,10 @@
                             <?= $row->email ?>
                         </td>
                         <td>
-                            <?=$row->nivel?>
+                            <?= $row->nivel?>
+                        </td>
+                        <td>
+                            <?= $row->razonSocial?>
                         </td>
                         <td>
                             <a id="btnEditarUsuario" type="button" data-id="<?= $row->id_usuario; ?>" href="">
