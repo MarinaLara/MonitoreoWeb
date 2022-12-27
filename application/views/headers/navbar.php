@@ -96,14 +96,6 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>Monitoreo/Datos" class="nav-link">
-                                <i class="fa-solid fa-chart-column textSize"></i>
-                                <p class="textSize">
-                                    Datos
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="<?= base_url() ?>Colmenas" class="nav-link">
                                 <i class="fa-brands fa-hive textSize"></i>
                                 <p class="textSize">

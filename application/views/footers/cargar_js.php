@@ -19,6 +19,12 @@
 			case 'Empresas':
 			    echo '<script src="'.base_url().'recursos/js/empresas.js"></script>';
 		    break;
+			case 'Datos':
+				echo '<script src="'.base_url().'recursos/js/datos.js"></script>';
+			break;
+			case 'Monitoreo':
+				echo '<script src="'.base_url().'recursos/js/dash.js"></script>';
+			break;
 	    }
 ?>
 		<script>var base_url = '<?php echo base_url()?>';</script>

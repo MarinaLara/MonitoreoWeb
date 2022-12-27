@@ -1,0 +1,52 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.calendar-table, .daterangepicker {
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+}
+
+#perro span, #perro li{
+    background-color: #343a40 !important;
+    border-color: #999 !important;
+}
+
+textarea{
+    border-color: transparent !important;
+    width: 2rem !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+    padding-left: 5px;
+}
+ 
+option, .hourselect, .minuteselect, .ampmselect {
+    color: black !important;
+}
+
+.daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date{
+    background-color: #999 !important;
+    border-color: transparent !important;
+    color: #fff !important;
+}
+
+.navGrafAl {
+    border-color: transparent !important;
+}
+
+.btnNav {
+    color: white !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    font-size: 30px;
+}
+
+button.active {
+    color: blue !important;
+}

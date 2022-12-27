@@ -7,30 +7,29 @@ class Monitoreo extends CI_Controller
 	{
 		parent::__construct();
 		//$this->load->model('Home_model');
+		$this->load->model('Data_model');
 	}
 	//Login
 	public function index()
 	{
 		if ($this->seguridad() == TRUE) {
-			$this->load->view('headers/header');
-			$this->load->view('headers/cargar_css');
-			$this->load->view('headers/navbar');
-			$this->load->view('monitoreo/dash');
-			$this->load->view('footers/footerCierre');
-			$this->load->view('footers/footer');
-			$this->load->view('footers/cargar_js');
-		} else {
-			redirect(base_url() . 'Inicio/');
-		}
-	}
+			date_default_timezone_set('America/New_York');
+			$id_empresa = $this->session->userdata('id_empresa');
+			$fechaFin = date('Y-m-d h:i'); //data de prueba "2022-12-12 11:00";
 
-	public function Datos()
-	{
-		if ($this->seguridad() == TRUE) {
+			$startdate = strtotime($fechaFin);
+			$enddate = strtotime("-1 weeks", $startdate);
+
+			$fechaIni = date("Y-m-d h:i", $enddate); //data de prueba "2022-12-12 10:00";
+			
+			$data = array(
+				'DATA_DASH' => $this->Data_model->getDatabyEmpresa($id_empresa, $fechaIni, $fechaFin),
+			);
 			$this->load->view('headers/header');
 			$this->load->view('headers/cargar_css');
 			$this->load->view('headers/navbar');
-			$this->load->view('monitoreo/datos');
+			$this->load->view('monitoreo/dash', $data);
+			$this->load->view('footers/footerCierre');
 			$this->load->view('footers/footer');
 			$this->load->view('footers/cargar_js');
 		} else {

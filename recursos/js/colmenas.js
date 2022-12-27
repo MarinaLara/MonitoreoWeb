@@ -54,14 +54,14 @@ var colmenas = {
         });
 
         //configuracion boton exit modal
-        $(".exit").on("click", function (e) {
+        $(document).on("click", ".exit", function (e) {
             e.preventDefault();
             $('#modalColmena').modal('hide')
             $("#txtNombreColmena").val('');
         });
 
         //Mostrar modal agregar Colmena
-        $("#btnNuevaColmena").on("click", function (e) {
+        $(document).on("click", "#btnNuevaColmena", function (e) {
             e.preventDefault();
             $('#modalColmena').modal('show')
             $('#htitleModalColmena').html('Agregar Colmena')
@@ -69,7 +69,7 @@ var colmenas = {
     },
     datos: function () {
         //Mostrar modal agregar Colmena
-        $("#btnEditarColmena").on("click", function (e) {
+        $(document).on("click", "#btnEditarColmena",function (e) {
             e.preventDefault();
             $('#modalColmena').modal('show')
             $('#htitleModalColmena').html('Editar Colmena')

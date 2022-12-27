@@ -6,7 +6,7 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 ml-auto text-center">
                 <a type="button" href="" id="btnNuevaEmpresa" class="btn btn-outline-light">
-                    Nueva Empresa <span><i class="fa-solid fa-user-plus"></i></span>
+                    Nueva Empresa <span><i class="fa-solid fa-building"><i class="fa-solid fa-plus" style="font-size: small;position: fixed;"></i></i></span>
                 </a>
             </div>
         </div>

@@ -3,8 +3,10 @@ body {
 }
 
 .contenedor {
-    position: absolute;
-    width: auto;
+    /* position: absolute; */
+    width: 100%;
+    height: 100% !important;
+    min-height: 100vh !important;
     box-sizing: border-box;
     border-radius: 6px;
 }
@@ -53,7 +55,7 @@ h1 {
     }
 }
 
-@media ((min-width:600px) and (max-width: 1600px)) {
+@media ((min-width:600px) and (max-width: 2000px)) {
     h1 {
         font-size: 4.5rem;
     }
