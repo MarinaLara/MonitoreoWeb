@@ -2,20 +2,20 @@ var home = {
     inicio: function () {
         $("#eyeButton").on("click", function (e) {
             e.preventDefault();
-            var inPassword = $("#input_password").attr("type");
+            var inPassword = $("#txtPassword").attr("type");
             if (inPassword == "password") {
-                $("#input_password").attr("type", "text");
+                $("#txtPassword").attr("type", "text");
                 $("#iEye").removeClass('fa-solid fa-eye');
                 $("#iEye").addClass('fa-solid fa-eye-slash');
             } else {
-                $("#input_password").attr("type", "password");
+                $("#txtPassword").attr("type", "password");
                 $("#iEye").removeClass('fa-solid fa-eye-slash');
                 $("#iEye").addClass('fa-solid fa-eye');
             }
         });
     },
-    login: function(){
-        $(document).on("click", "#btnLogin", function(e){
+    login: function () {
+        $(document).on("click", "#btnLogin", function (e) {
             e.preventDefault;
             var data = {
                 email: $("#txtEmail").val(),
@@ -28,8 +28,16 @@ var home = {
     },
 }
 var recuperar = {
-    enviar: function (){
-        
+    enviar: function () {
+        $(document).on("click", "#btnRecovery", function (e) {
+            e.preventDefault;
+            var data = {
+                email: $("#txtEmail").val(),
+            }
+
+            cargar_ajax.run_server_ajax("Inicio/enviarContrasena", data)
+            window.location.assign(base_url + 'Monitoreo/');
+        });
     },
 }
 jQuery(document).ready(function () {

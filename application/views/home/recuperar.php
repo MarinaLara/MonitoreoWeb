@@ -11,16 +11,16 @@
                 <h1 style="text-transform: uppercase;">Recuperar contraseña</h1>
             </div>
         </div>
-        <form id="recuperarPass" autocomplete="off" action="<?= base_url() ?>Inicio/">
+        <form id="recuperarPass" name="recuperarPass" autocomplete="off"  class="form-horizontal">
             <div class="form-group row d-flex justify-content-center">
                 <div style="margin-bottom: 3%;" class="col-10 ">
-                    <span class="textColor" for="exampleInputEmail1">Correo</span>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                    <span class="textColor" for="txtEmail">Correo</span>
+                    <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp"
+                        placeholder="Ingrese email">
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-secondary btnInicio">Enviar</button>
+                <button type="button" id="btnRecovery" class="btn btn-secondary btnInicio">Enviar</button>
             </div>
         </form>
     </div>
