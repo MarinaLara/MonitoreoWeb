@@ -14,6 +14,9 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
     .textSize {
         font-size: 24px;
     }
+    .alignExit{
+        display: flex;
+    }
 </style>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed"
@@ -30,43 +33,14 @@ if ($segmento1 == "Monitoreo" && $segmento == "") {
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown user-menu">
-                    <a href="" class="nav-link dropdown-toggle nav-drop-img" data-toggle="dropdown"
-                        aria-expanded="false">
-                        <?php if ($img_path == null) { ?>
-                        <img style="float: right!important; margin-top: -4px;"
-                            src="<?= base_url() ?>recursos/imagenes/user.jpg"
-                            class="user-image img-circle elevation-2 nav-user-img">
-                        <?php } else { ?>
-                        <img src="<?= base_url($img_path) ?>" style="float: right!important; margin-top: -4px;"
-                            class="user-image img-circle elevation-2 nav-user-img">
-                        <?php } ?>
-                        <span class="hidden-xs text-capitalize textSize">
-                            <?= $nombre; ?>
-                        </span>
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>Inicio/logOut" class="nav-link alignExit">
+                        <i class="fa-solid fa-arrow-right-from-bracket textSize"></i>
+                        <p class="textSize" style="margin-top: -10%;">
+                            Salir
+                        </p>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                        <li class="user-header bg-primary drop-user-img">
-                            <?php if ($img_path == null) { ?>
-                            <img src="<?= base_url() ?>recursos/imagenes/user.jpg"
-                                class="user-image img-circle elevation-2">
-                            <?php } else { ?>
-                            <img src="<?= base_url($img_path) ?>" class="user-image img-circle elevation-2">
-                            <?php } ?>
-                            <p class="text-capitalize">
-                                <?= $nombre; ?>
-                                    <?php if ($level == 1) { ?>
-                                    <small>Root</small>
-                                    <?php } else if ($level == 2) { ?>
-                                    <small>Administrador</small>
-                                    <?php } ?>
-                            </p>
-                        </li>
-                        <li class="user-footer d-flex justify-content-between">
-                            <a href="<?= base_url() ?>Plataforma/perfil" class="btn btn-default">Perfil</a>
-                            <a href="<?= base_url() ?>Home/logout" class="btn btn-default ml-auto">Cerrar Session</a>
-                        </li>
-                    </ul>
+
                 </li>
             </ul>
         </nav>

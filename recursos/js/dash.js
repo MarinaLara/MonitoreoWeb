@@ -1,5 +1,8 @@
 var char;
 var datosSelect = new Array();
+var select2Colmenas;
+var dataP;
+
 function sumarDias(fecha, dias) {
     fecha.setDate(fecha.getDate() - dias);
     return fecha;
@@ -7,7 +10,7 @@ function sumarDias(fecha, dias) {
 
 var dash = {
     default: function () {
-        var dataP = cargar_ajax.run_server_ajax('Datos/getDataDash')
+        dataP = cargar_ajax.run_server_ajax('Datos/getDataDash')
         if (dataP !== false) {
             dataP.forEach(elem => {
                 var data = {
@@ -18,10 +21,14 @@ var dash = {
                 datosSelect.push(data);
             });
         }
+
         $(document).ready(function () {
-            $('#columnsHives').select2({
+            select2Colmenas = $('#columnsHives').select2({
                 data: datosSelect,
                 tags: true,
+                selectOnClose: true,
+                closeOnSelect: true,
+                placeholder: "Seleccione colmena",
             }).on("select2:unselecting", function (e) {
                 $(this).data("unselecting", true);
                 //quitar data/colmenas
@@ -57,6 +64,7 @@ var dash = {
                 }
             });
         })
+
         //Chart
         Chart.defaults.global.defaultFontColor = '#fff';
         Chart.defaults.global.defaultFontSize = 20;
@@ -227,9 +235,167 @@ var dash = {
             }
         });
     },
+    seleccionFechas: function () {
+        $(document).on('click', '.applyBtn', function (e) {
+            datosSelect = [];
+            if (char != null) {
+                char.clear();
+                char.destroy();
+                char = null
+            }
+            var strFecha = String($("#selFechasPeriod").val())
+            strFecha = strFecha.replace('-', '#')
+            for (let index = 0; index < strFecha.length; index++) {
+                strFecha = strFecha.replace('/', '-')
+            }
+            var divisiones = strFecha.split("#", 2);
+
+            var data = {
+                inicio: divisiones[0],
+                fin: divisiones[1],
+            }
+
+            dataP = cargar_ajax.run_server_ajax('Monitoreo/GetDatabyDate', data);
+            //Chart
+            Chart.defaults.global.defaultFontColor = '#fff';
+            Chart.defaults.global.defaultFontSize = 20;
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            var name = [];
+            var valueT1 = [];
+            var valueT2 = [];
+            var valueT3 = [];
+            var valueH1 = [];
+            var valueH2 = [];
+
+            if (dataP != (false || undefined)) {
+                for (var i in dataP) {
+                    name.push(dataP[i].identificadorColmena);
+                    valueT1.push(dataP[i].promedioTI1);
+                    valueT2.push(dataP[i].promedioTI2);
+                    valueT3.push(dataP[i].promedioTE);
+                    valueH1.push(dataP[i].promedioHI);
+                    valueH2.push(dataP[i].promedioHE);
+                }
+            }
+
+            var areaChartData = {
+                labels: name,
+                datasets: [
+                    {
+                        label: 'Temperatura interna 1',
+                        backgroundColor: 'rgb(213, 37, 37)',
+                        borderColor: 'rgb(213, 37, 37)',
+                        pointRadius: false,
+                        pointColor: '#fff',
+                        pointStrokeColor: 'rgba(60, 141,188,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                        data: valueT1,
+                    },
+                    {
+                        label: 'Temperatura interna 2',
+                        backgroundColor: 'rgb(213, 37, 37)',
+                        borderColor: 'rgb(213, 37, 37)',
+                        pointRadius: false,
+                        pointColor: '#fff',
+                        pointStrokeColor: 'rgba(60, 141,188,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                        data: valueT2,
+                    },
+                    {
+                        label: 'Temperatura externa',
+                        backgroundColor: 'rgb(213, 37, 37)',
+                        borderColor: 'rgb(213, 37, 37)',
+                        pointRadius: false,
+                        pointColor: '#fff',
+                        pointStrokeColor: 'rgba(60, 141,188,1)',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                        data: valueT3,
+                    },
+                    {
+                        label: 'Humedad interna',
+                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        borderColor: 'rgba(60,141,188,0.8)',
+                        pointRadius: false,
+                        pointColor: 'rgba(210, 214, 222, 1)',
+                        pointStrokeColor: '#c1c7d1',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                        data: valueH1,
+                    },
+                    {
+                        label: 'Humedad externa',
+                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        borderColor: 'rgba(60,141,188,0.8)',
+                        pointRadius: false,
+                        pointColor: 'rgba(210, 214, 222, 1)',
+                        pointStrokeColor: '#c1c7d1',
+                        pointHighlightFill: '#fff',
+                        pointHighlightStroke: 'rgba(220,220,220,1)',
+                        data: valueH2,
+                    },
+                ]
+            }
+
+            var areaChartOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+                datasetFill: false,
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                },
+                layout: {
+                    padding: 10,
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false,
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            display: false,
+                        }
+                    }]
+                }
+            }
+
+            var barChartCanvas = $('#chartColmenaId').get(0).getContext('2d')
+
+            char = new Chart(barChartCanvas, {
+                type: 'bar',
+                data: areaChartData,
+                options: areaChartOptions
+            })
+
+            if (dataP !== false) {
+                dataP.forEach(elem => {
+                    var data = {
+                        id: elem.id_colmena,
+                        text: elem.identificadorColmena,
+                        "selected": true,
+                    }
+                    datosSelect.push(data);
+                });
+                select2Colmenas.val(null).trigger("change");
+                select2Colmenas.select2({
+                    data: datosSelect,
+                    tags: true,
+                    selectOnClose: true,
+                    closeOnSelect: true,
+                    placeholder: "Seleccione colmena",
+                });
+            }
+        });
+    },
 }
 
 jQuery(document).ready(function () {
     dash.default(this);
     dash.grafica(this);
+    dash.seleccionFechas(this);
 });

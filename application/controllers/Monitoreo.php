@@ -37,6 +37,24 @@ class Monitoreo extends CI_Controller
 		}
 	}
 
+	public function GetDatabyDate()
+	{
+		if ($this->seguridad() == TRUE) {
+			if ($this->input->is_ajax_request()) {
+				$id_empresa = $this->session->userdata('id_empresa');
+				$inicio = trim($this->input->post('inicio'));
+				$termino = trim($this->input->post('fin'));
+
+				$data = $this->Data_model->getDatabyEmpresa($id_empresa, $inicio, $termino);
+				echo json_encode($data);
+			} else {
+				show_404();
+			}
+		} else {
+			redirect(base_url() . 'Inicio/');
+		}
+	}
+
 	//Funcion de seguridad
 	public function seguridad()
 	{
